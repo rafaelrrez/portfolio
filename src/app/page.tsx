@@ -48,7 +48,7 @@ export default function Portfolio() {
                   <span className="text-primary">Rafael Ramírez Medina</span>
                 </h1>
                 <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
-                  Soy un desarrollador en formación con un gran interés en el
+                  Soy un desarrollador con un gran interés en el
                   desarrollo Full Stack. Me apasiona aprender y mejorar mis
                   habilidades en tecnologías modernas para construir soluciones
                   funcionales y eficientes.
