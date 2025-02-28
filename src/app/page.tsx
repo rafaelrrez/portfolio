@@ -1,7 +1,16 @@
-import Link from "next/link"
-import { ArrowUpRight, Github } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+"use client"; // 🔥 Esto hace que el componente sea interactivo
+
+import Link from "next/link";
+import { Github } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 export default function Portfolio() {
   return (
@@ -15,7 +24,11 @@ export default function Portfolio() {
           </div>
           <div className="flex flex-1 items-center justify-end space-x-4">
             <nav className="flex items-center space-x-1">
-              <Link href="https://github.com" target="_blank" rel="noreferrer">
+              <Link
+                href="https://github.com/rafaelrrez/proyectos"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <div className="flex h-9 w-9 items-center justify-center rounded-md border transition-colors hover:bg-accent">
                   <Github className="h-5 w-5" />
                   <span className="sr-only">GitHub</span>
@@ -28,18 +41,35 @@ export default function Portfolio() {
       <main className="container py-10">
         <section className="py-12 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-2">
+            <div className="flex flex-col items-center justify-center space-y-9 text-center">
+              <div className="space-y-9">
                 <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
-                  Hola, soy <span className="text-primary">Desarrollador</span>
+                  Hola, soy{" "}
+                  <span className="text-primary">Rafael Ramírez Medina</span>
                 </h1>
                 <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
-                  Especializado en crear aplicaciones web modernas con diferentes tecnologías.
+                  Soy un desarrollador en formación con un gran interés en el
+                  desarrollo Full Stack. Me apasiona aprender y mejorar mis
+                  habilidades en tecnologías modernas para construir soluciones
+                  funcionales y eficientes.
                 </p>
               </div>
               <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                <Button>Contacto</Button>
-                <Button variant="outline">Descargar CV</Button>
+                <button
+                  onClick={() =>
+                    window.open("mailto:rafael.rrez.medina@gmail.com")
+                  }
+                  className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-700"
+                >
+                  Contacto
+                </button>
+                <a
+                  href="/CV_Rafael_Ramírez_Medina.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button variant="outline">Descargar CV</Button>
+                </a>
               </div>
             </div>
           </div>
@@ -49,150 +79,134 @@ export default function Portfolio() {
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Mis Proyectos</h2>
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+                  Mis Proyectos
+                </h2>
                 <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
-                  Explora mis trabajos más recientes en diferentes tecnologías.
+                  Explora mis proyectos en diferentes tecnologías.
                 </p>
               </div>
             </div>
             <div className="grid grid-cols-1 gap-6 mt-8 md:grid-cols-2 lg:grid-cols-3">
-              <Card className="overflow-hidden">
-                <CardHeader>
-                  <CardTitle>E-commerce React</CardTitle>
-                  <CardDescription>Tienda online desarrollada con React y Redux</CardDescription>
+              {/* Cada tarjeta ahora tiene una estructura con altura fija para el header */}
+              <Card className="flex flex-col h-full">
+                <CardHeader className="flex-none">
+                  <CardTitle>Mr. Rebujito</CardTitle>
                 </CardHeader>
-                <CardContent>
+                <div className="flex-1 overflow-auto px-6">
+                  <CardDescription className="mb-4">
+                    Mr. Rebujito es una API desarrollada en Java con Spring Boot
+                    para administrar casetas de feria. Permite gestionar la
+                    información de forma segura con funciones como inicio de
+                    sesión, registro y protección de datos. Además, facilita la
+                    creación, edición y eliminación de registros de casetas.
+                    También incluye documentación integrada para ayudar a los
+                    desarrolladores a entender y usar la API fácilmente.
+                  </CardDescription>
+                </div>
+                <CardContent className="flex-none pt-0">
                   <div className="aspect-video overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-800">
                     <img
-                      src="/placeholder.svg?height=400&width=600"
+                      src="/spring.jpg?height=400&width=600"
                       alt="Vista previa del proyecto de E-commerce"
                       className="object-cover w-full h-full"
                     />
                   </div>
-                  <div className="mt-4">
-                    <p className="text-sm text-gray-500 dark:text-gray-400">
-                      Una tienda online completa con carrito de compras, gestión de usuarios y pasarela de pagos.
-                    </p>
-                    <div className="flex flex-wrap gap-2 mt-4">
-                      <span className="inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10 dark:bg-blue-900/30 dark:text-blue-400 dark:ring-blue-400/30">
-                        React
-                      </span>
-                      <span className="inline-flex items-center rounded-md bg-purple-50 px-2 py-1 text-xs font-medium text-purple-700 ring-1 ring-inset ring-purple-700/10 dark:bg-purple-900/30 dark:text-purple-400 dark:ring-purple-400/30">
-                        Redux
-                      </span>
-                      <span className="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-700/10 dark:bg-green-900/30 dark:text-green-400 dark:ring-green-400/30">
-                        Stripe
-                      </span>
-                    </div>
-                  </div>
                 </CardContent>
-                <CardFooter className="flex justify-between">
-                  <Button variant="outline" size="sm">
-                    <Github className="h-4 w-4 mr-2" />
-                    Código
-                  </Button>
-                  <Button size="sm">
-                    Demo
-                    <ArrowUpRight className="h-4 w-4 ml-2" />
-                  </Button>
+                <CardFooter className="flex-none justify-between">
+                  <Link
+                    href="https://github.com/rafaelrrez/proyectos/tree/main/Mr_Rebujito_API"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Button variant="outline" size="sm">
+                      <Github className="h-4 w-4 mr-2" />
+                      Código
+                    </Button>
+                  </Link>
                 </CardFooter>
               </Card>
 
-              <Card className="overflow-hidden">
-                <CardHeader>
-                  <CardTitle>API Node.js</CardTitle>
-                  <CardDescription>Backend RESTful con Node.js y Express</CardDescription>
+              <Card className="flex flex-col h-full">
+                <CardHeader className="flex-none">
+                  <CardTitle>iDoctor App</CardTitle>
                 </CardHeader>
-                <CardContent>
+                <div className="flex-1 overflow-auto px-6">
+                  <CardDescription className="mb-4">
+                    Aplicación móvil en Java para Android que facilita la
+                    gestión de citas médicas entre pacientes y doctores. Utiliza
+                    Firebase para autenticación, base de datos Firestore,
+                    notificaciones push y almacenamiento de imágenes. Los
+                    pacientes pueden buscar especialistas, reservar citas y
+                    recibir recordatorios automáticos, mientras que los doctores
+                    pueden administrar sus horarios y consultar información de
+                    los pacientes en tiempo real.
+                  </CardDescription>
+                </div>
+                <CardContent className="flex-none pt-0">
                   <div className="aspect-video overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-800">
                     <img
-                      src="/placeholder.svg?height=400&width=600"
+                      src="/idoctor.jpg?height=400&width=600"
                       alt="Vista previa del proyecto de API"
                       className="object-cover w-full h-full"
                     />
                   </div>
-                  <div className="mt-4">
-                    <p className="text-sm text-gray-500 dark:text-gray-400">
-                      API RESTful con autenticación JWT, validación de datos y documentación con Swagger.
-                    </p>
-                    <div className="flex flex-wrap gap-2 mt-4">
-                      <span className="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-700/10 dark:bg-green-900/30 dark:text-green-400 dark:ring-green-400/30">
-                        Node.js
-                      </span>
-                      <span className="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-700 ring-1 ring-inset ring-yellow-700/10 dark:bg-yellow-900/30 dark:text-yellow-400 dark:ring-yellow-400/30">
-                        Express
-                      </span>
-                      <span className="inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10 dark:bg-blue-900/30 dark:text-blue-400 dark:ring-blue-400/30">
-                        MongoDB
-                      </span>
-                    </div>
-                  </div>
                 </CardContent>
-                <CardFooter className="flex justify-between">
-                  <Button variant="outline" size="sm">
-                    <Github className="h-4 w-4 mr-2" />
-                    Código
-                  </Button>
-                  <Button size="sm">
-                    Demo
-                    <ArrowUpRight className="h-4 w-4 ml-2" />
-                  </Button>
+                <CardFooter className="flex-none justify-between">
+                  <Link
+                    href="https://github.com/rafaelrrez/proyectos/tree/main/iDoctorApp"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Button variant="outline" size="sm">
+                      <Github className="h-4 w-4 mr-2" />
+                      Código
+                    </Button>
+                  </Link>
                 </CardFooter>
               </Card>
 
-              <Card className="overflow-hidden">
-                <CardHeader>
-                  <CardTitle>Aplicación Python</CardTitle>
-                  <CardDescription>Análisis de datos con Python y Django</CardDescription>
+              <Card className="flex flex-col h-full">
+                <CardHeader className="flex-none">
+                  <CardTitle>TechShop App</CardTitle>
                 </CardHeader>
-                <CardContent>
+                <div className="flex-1 overflow-auto px-6">
+                  <CardDescription className="mb-4">
+                    Aplicación web de comercio electrónico en Laravel y Blade,
+                    con autenticación de usuarios, gestión de productos y
+                    sistema de pedidos. Permite a los clientes explorar
+                    diferentes categorías, agregar productos al carrito y
+                    completar compras de manera segura. Además, los
+                    administradores pueden gestionar el inventario y procesar
+                    pedidos desde un panel de control.
+                  </CardDescription>
+                </div>
+                <CardContent className="flex-none pt-0">
                   <div className="aspect-video overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-800">
                     <img
-                      src="/placeholder.svg?height=400&width=600"
+                      src="/TechShop.jpg?height=400&width=600"
                       alt="Vista previa del proyecto de Python"
                       className="object-cover w-full h-full"
                     />
                   </div>
-                  <div className="mt-4">
-                    <p className="text-sm text-gray-500 dark:text-gray-400">
-                      Aplicación web para análisis y visualización de datos con dashboard interactivo.
-                    </p>
-                    <div className="flex flex-wrap gap-2 mt-4">
-                      <span className="inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10 dark:bg-blue-900/30 dark:text-blue-400 dark:ring-blue-400/30">
-                        Python
-                      </span>
-                      <span className="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-700/10 dark:bg-green-900/30 dark:text-green-400 dark:ring-green-400/30">
-                        Django
-                      </span>
-                      <span className="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-700/10 dark:bg-red-900/30 dark:text-red-400 dark:ring-red-400/30">
-                        Pandas
-                      </span>
-                    </div>
-                  </div>
                 </CardContent>
-                <CardFooter className="flex justify-between">
-                  <Button variant="outline" size="sm">
-                    <Github className="h-4 w-4 mr-2" />
-                    Código
-                  </Button>
-                  <Button size="sm">
-                    Demo
-                    <ArrowUpRight className="h-4 w-4 ml-2" />
-                  </Button>
+                <CardFooter className="flex-none justify-between">
+                  <Link
+                    href="https://github.com/rafaelrrez/proyectos/tree/main/TechShopWebApp"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Button variant="outline" size="sm">
+                      <Github className="h-4 w-4 mr-2" />
+                      Código
+                    </Button>
+                  </Link>
                 </CardFooter>
               </Card>
             </div>
           </div>
         </section>
       </main>
-      <footer className="border-t py-6 md:py-0">
-        <div className="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
-          <p className="text-center text-sm leading-loose text-muted-foreground md:text-left">
-            © 2025 Mi Portfolio. Todos los derechos reservados.
-          </p>
-        </div>
-      </footer>
     </div>
-  )
+  );
 }
-
